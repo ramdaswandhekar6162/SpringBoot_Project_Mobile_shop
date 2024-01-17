@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Moble Details</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mobile Factory</a>
+  </div>
+ </nav>
+	<div class="container">
+		<div>
+		<div>
+			<a class="btn btn-primary" href="/getInsert" role="button">Insert data</a>
+		</div>
+			<table class="table table-dark">
+				<thead>
+					<tr>
+						<th>Sr</th>
+						<th>Company
+						</th>
+						<th>mobile name
+						</th>
+						<th>prize</th>
+						<th>Actions</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="obj : ${mbtable}">
+						<th th:text="${obj.id}"></th>
+						<td th:text="${obj.company}"></th>
+						<td th:text="${obj.mobilename}"></td>
+						<td th:text="${obj.prize}"></td>
+						<td> <a th:href="@{/showFormUpdate/{id}(id=${obj.id})}" type="Button" class="btn-primary btn">Update </a>
+							<a th:href="@{/deletdata/{id}(id=${obj.id})}" type="Button" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
